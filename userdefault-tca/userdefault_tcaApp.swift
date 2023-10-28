@@ -1,17 +1,16 @@
-//
-//  userdefault_tcaApp.swift
-//  userdefault-tca
-//
-//  Created by Yifan Jin on 28/10/2023.
-//
-
+import ComposableArchitecture
 import SwiftUI
 
 @main
 struct userdefault_tcaApp: App {
+    @Environment(\.scenePhase) var scenePhase
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(store: Store(initialState: RootFeature.State(), reducer: {
+                RootFeature()
+            }))
+            
         }
     }
 }
